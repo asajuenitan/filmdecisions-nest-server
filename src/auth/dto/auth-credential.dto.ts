@@ -7,8 +7,6 @@ import {
   MinLength,
   MaxLength,
 } from 'class-validator';
-import { CompanyEntity } from 'src/user/company.entity';
-import { CompanyDto } from 'src/user/company.dto';
 
 export class AuthCredentialDto {
   @IsEmail()

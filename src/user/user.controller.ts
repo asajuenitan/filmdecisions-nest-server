@@ -9,11 +9,10 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
-import { GetUser } from 'src/auth/get-user.decorator';
-import { User } from 'src/auth/user.entity';
-import { CompanyDto } from './company.dto';
-import { AuthCredentialDto } from 'src/auth/dto/auth-credential.dto';
-import { Roles } from 'src/auth/roles.decorator';
+import { GetUser } from '../auth/get-user.decorator';
+import { User } from '../auth/user.entity';
+import { AuthCredentialDto } from '../auth/dto/auth-credential.dto';
+import { Roles } from '../auth/roles.decorator';
 
 @Controller('users')
 @UseGuards(AuthGuard('jwt'))

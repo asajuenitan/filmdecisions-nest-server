@@ -9,7 +9,7 @@ import {
   ManyToOne,
   OneToOne,
 } from 'typeorm';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 
 @Entity()
 export class CompanyEntity extends BaseEntity {

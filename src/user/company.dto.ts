@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 
 export class CompanyDto {
   @IsNotEmpty()

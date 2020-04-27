@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ProjectEntity } from './project.entity';
 import { ProjectRepository } from './project.repository';
 import { GetProjectFilterDto } from './get-project-filter.filter';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { IFileObject } from './file-object.interface';
 import { IFile } from './file.interface';

@@ -10,8 +10,6 @@ import {
   InternalServerErrorException,
 } from '@nestjs/common';
 import { LoginDto } from './dto/login.dto';
-import { CompanyDto } from 'src/user/company.dto';
-import { CompanyEntity } from 'src/user/company.entity';
 
 const SALT = 10;
 

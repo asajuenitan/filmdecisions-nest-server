@@ -19,8 +19,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { ProjectService } from './project.service';
 import { GetProjectFilterDto } from './get-project-filter.filter';
 import { ProjectEntity } from './project.entity';
-import { GetUser } from 'src/auth/get-user.decorator';
-import { User } from 'src/auth/user.entity';
+import { GetUser } from '../auth/get-user.decorator';
+import { User } from '../auth/user.entity';
 import {
   FileFieldsInterceptor,
   FilesInterceptor,
@@ -32,7 +32,7 @@ import { CreateProjectDto } from './dto/create-project.dto';
 import { IFileObject } from './file-object.interface';
 import * as multer from 'multer';
 import { IFile } from './file.interface';
-import { Roles } from 'src/auth/roles.decorator';
+import { Roles } from '../auth/roles.decorator';
 
 @Controller('projects')
 @UseGuards(AuthGuard('jwt'))

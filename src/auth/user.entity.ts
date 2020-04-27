@@ -9,10 +9,7 @@ import {
   ObjectIdColumn,
   OneToOne,
 } from 'typeorm';
-import * as bcrypt from 'bcrypt';
-import { ProjectEntity } from 'src/project/project.entity';
-import { type } from 'os';
-import { CompanyEntity } from 'src/user/company.entity';
+import { ProjectEntity } from '../project/project.entity';
 
 @Entity()
 @Unique(['email'])

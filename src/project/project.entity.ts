@@ -9,7 +9,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 import { ProjectStatus, ApprovalStatus } from './project.status';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 import { IFile } from './file.interface';
 
 @Entity()
