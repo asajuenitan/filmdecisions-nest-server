@@ -13,6 +13,7 @@ import { GetUser } from 'src/auth/get-user.decorator';
 import { User } from 'src/auth/user.entity';
 import { CompanyDto } from './company.dto';
 import { AuthCredentialDto } from 'src/auth/dto/auth-credential.dto';
+import { Roles } from 'src/auth/roles.decorator';
 
 @Controller('users')
 @UseGuards(AuthGuard('jwt'))
@@ -20,6 +21,7 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Get()
+  @Roles('admin')
   async getAllUsers(): Promise<User[]> {
     return await this.userService.getAllUsers();
   }
@@ -38,11 +40,13 @@ export class UserController {
   }
 
   @Put(':id')
+  @Roles('admin')
   async ChangeUserStatus(@Param('id') id: string): Promise<User> {
     return await this.userService.ChangeUserStatus(id);
   }
 
   @Get(':id')
+  @Roles('admin')
   async getOneUser(@Param('id') id: string): Promise<User> {
     return await this.userService.getOneUser(id);
   }

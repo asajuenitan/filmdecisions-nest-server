@@ -26,6 +26,9 @@ export class ProjectEntity extends BaseEntity {
   filmLogline: string;
 
   @Column()
+  projectFiles: Array<[]>;
+
+  @Column()
   filmSynopsis: IFile;
 
   @Column()

@@ -6,6 +6,7 @@ import { GetProjectFilterDto } from './get-project-filter.filter';
 import { User } from 'src/auth/user.entity';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { IFileObject } from './file-object.interface';
+import { IFile } from './file.interface';
 
 @Injectable()
 export class ProjectService {
@@ -17,6 +18,10 @@ export class ProjectService {
     filterDto: GetProjectFilterDto,
   ): Promise<ProjectEntity[]> {
     return this.projectRepo.getAllProjectsFromAllUsers(filterDto);
+  }
+
+  async getProjectsByUserId(id: any): Promise<ProjectEntity[]> {
+    return await this.projectRepo.getProjectsByUserId(id);
   }
 
   async getProjectsByLoggedInUser(
@@ -37,12 +42,32 @@ export class ProjectService {
     return await this.projectRepo.createProject(createProjectDto, user);
   }
 
-  async updateProjectFiles(user: User, projectId: string, files: IFileObject) {
-    return await this.projectRepo.uploadProjectFilesById(
-      projectId,
-      files,
-      user,
-    );
+  // async updateProjectFiles(user: User, projectId: string, files: []) {
+  //   return await this.projectRepo.uploadProjectFilesById(
+  //     projectId,
+  //     files,
+  //     user,
+  //   );
+  // }
+
+  async uploadCast(id: string, user: User, files: IFile) {
+    return this.projectRepo.uploadCast(id, files, user);
+  }
+
+  async uploadFilmStructure(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadFilmStructure(id, files, user);
+  }
+
+  async uploadTargetAudience(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadTargetAudience(id, files, user);
+  }
+
+  async uploadTreatment(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadTreatment(id, files, user);
+  }
+
+  async uploadFilmSynopsis(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadFilmSynopsis(id, files, user);
   }
 
   async updateProjectStatus(id: string, user: User, updateData) {

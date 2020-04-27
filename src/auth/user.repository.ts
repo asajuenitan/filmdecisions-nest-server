@@ -40,6 +40,7 @@ export class UserRepository extends Repository<User> {
     user.companyName = companyName;
     user.phone = phone;
     user.jobTitle = jobTitle;
+    user.roles = 'user';
     user.salt = bcrypt.genSaltSync(SALT);
     user.active = true;
     user.password = await this.hashPassword(this.newPassword, user.salt);
@@ -120,8 +121,12 @@ export class UserRepository extends Repository<User> {
   async ChangeUserStatus(id: string): Promise<User> {
     try {
       const user = await this.findOne(id);
-      if (user) {
-        user.active != user.active;
+      if (user.active) {
+        user.active = false;
+        user.save();
+        return user;
+      } else {
+        user.active = true;
         user.save();
         return user;
       }

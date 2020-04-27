@@ -25,14 +25,31 @@ export class ProjectRepository extends Repository<ProjectEntity> {
     }
   }
 
+  async getProjectsByUserId(id: string): Promise<ProjectEntity[]> {
+    const projects = await this.find({ userId: id });
+    return projects;
+  }
+
   async getProjectsByLoggedInUser(
     user: User,
     filterDto: GetProjectFilterDto,
   ): Promise<ProjectEntity[]> {
     const { status, approvalStatus } = filterDto;
-    const projects = await this.find({
+    let projects = await this.find({
       userId: user._id.toString(),
     });
+    if (status) {
+      projects = await this.find({
+        userId: user._id.toString(),
+        status: status,
+      });
+    }
+    if (approvalStatus) {
+      const projects = await this.find({
+        userId: user._id.toString(),
+        approvalStatus: approvalStatus,
+      });
+    }
     try {
       return projects;
     } catch (err) {
@@ -89,51 +106,93 @@ export class ProjectRepository extends Repository<ProjectEntity> {
     }
   }
 
-  async deleteProjectById(id: string) {
-    await this.findOneOrFail(id);
-    return this.delete(id);
-  }
-
-  // async deleteProjectById(id: string) {
-  // const query = createQueryBuilder('project_entity', );
-  // }
-
-  // async deleteProjectByUser(id: string, user): Promise<ProjectEntity> {
-  // this.delete
-  // const projects = await this.find(user._id);
-  // if (projects) {
-  // this.deleteProjectById(projects._id)
-  // }
-  // }
-
-  async uploadProjectFilesById(
-    id: string,
-    files: IFileObject,
-    user: User,
-  ): Promise<ProjectEntity> {
-    const {
-      filmSynopsis,
-      cast,
-      targetAudience,
-      treatment,
-      filmStructure,
-    } = files;
-    console.log(files);
-    const project = await this.findOneOrFail(id['id']);
-    if (project) {
-      project.cast = cast['cast'];
-      project.filmSynopsis = filmSynopsis['filmSynopsis'];
-      project.targetAudience = targetAudience['targetAudience'];
-      project.treatment = treatment['treatment'];
-      project.filmStructure = filmStructure['filmStructure'];
-    } else {
+  async deleteProjectById(id: any) {
+    try {
+      const project = await this.findOne(id);
+      this.delete(project);
+    } catch (err) {
       throw new NotFoundException();
     }
+  }
+
+  async deleteProjectByUser(id: string, user): Promise<void> {
+    this.delete;
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    if (project) {
+      this.deleteProjectById(project._id);
+    }
+  }
+
+  async uploadCast(id: string, files: any, user: User): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    project.cast = files;
+    // const element = files[i];
+    // console.log(project);
     try {
       project.save();
       return project;
     } catch (err) {
-      throw new InternalServerErrorException();
+      throw new NotFoundException();
+    }
+  }
+
+  async uploadFilmStructure(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.filmStructure = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
+
+  async uploadTargetAudience(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.targetAudience = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
+
+  async uploadTreatment(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.treatment = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
+
+  async uploadFilmSynopsis(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.filmSynopsis = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
     }
   }
 }
