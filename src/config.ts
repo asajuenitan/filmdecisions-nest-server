@@ -1,7 +1,9 @@
 export default {
   host: {
-    url: process.env.HOST || 'http://localhost',
-    port: process.env.PORT || 3000,
+    // url: process.env.HOST || 'http://localhost',
+    // port: process.env.PORT || 3000,
+    url: process.env.HOST || 'http://filmdecisions.com/ang',
+    port: process.env.PORT || '',
   },
   jwt: {
     secretOrKey: 'projectOneFilmDecions',
