@@ -58,7 +58,7 @@ export class ProjectRepository extends Repository<ProjectEntity> {
   }
 
   async getProjectById(id: string, user: User): Promise<ProjectEntity> {
-    return await this.findOne(id, { where: user });
+    return await this.findOne(id);
   }
 
   async createProject(

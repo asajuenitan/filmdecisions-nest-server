@@ -43,7 +43,7 @@ export class UserRepository extends Repository<User> {
     user.active = true;
     user.password = await this.hashPassword(this.newPassword, user.salt);
     try {
-      const userExists = await this.findOne({ email: email });
+      const userExists = await this.findOne({ email });
       if (!userExists) {
         this.save(user);
         return this.newPassword;
