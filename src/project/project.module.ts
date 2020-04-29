@@ -13,7 +13,7 @@ import { fileFilter } from './file-upload.filter';
   imports: [
     TypeOrmModule.forFeature([ProjectRepository]),
     MulterModule.register({
-      dest: './uploads/projects',
+      dest: 'uploads/projects',
     }),
   ],
 })
