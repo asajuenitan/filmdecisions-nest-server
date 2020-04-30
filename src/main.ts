@@ -5,7 +5,11 @@ import * as bodyParser from 'body-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['http://localhost:4200', 'https://filmdecisions.netlify.app'],
+    origin: [
+      'http://localhost:4200',
+      'https://filmdecisions.netlify.app',
+      'https://filmdeci.netlify.app/',
+    ],
     credentials: true,
   });
   app.use(bodyParser.json({ limit: '50mb' }));
