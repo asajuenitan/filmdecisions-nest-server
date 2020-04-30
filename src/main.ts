@@ -8,7 +8,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:4200',
       'https://filmdecisions.netlify.app',
-      'https://filmdeci.netlify.app/',
+      'https://filmdeci.netlify.app',
     ],
     credentials: true,
   });
