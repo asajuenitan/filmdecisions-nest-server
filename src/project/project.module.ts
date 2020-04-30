@@ -14,6 +14,7 @@ import { fileFilter } from './file-upload.filter';
     TypeOrmModule.forFeature([ProjectRepository]),
     MulterModule.register({
       dest: 'uploads/projects',
+      fileFilter: fileFilter,
     }),
   ],
 })

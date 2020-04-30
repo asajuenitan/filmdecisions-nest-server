@@ -14,6 +14,7 @@ import {
   Req,
   UploadedFile,
   Delete,
+  Res,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ProjectService } from './project.service';
@@ -130,5 +131,10 @@ export class ProjectController {
   @Roles('admin')
   async deleteProjectById(@Param('id') id: string) {
     return await this.projectService.deleteProject(id);
+  }
+
+  @Get(':imgpath')
+  async downloadFile(@Param('imgpath') imgPath: string, @Res() res) {
+    res.sendFile(imgPath, { root: 'uploads/projects' });
   }
 }
