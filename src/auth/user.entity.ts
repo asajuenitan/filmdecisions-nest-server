@@ -11,7 +11,7 @@ import {
 } from 'typeorm';
 import { ProjectEntity } from '../project/project.entity';
 import { IFile } from 'src/project/file.interface';
-import { AgentEntity } from 'src/agent/agent.entity';
+import { AgentEntity } from '../agent/agent.entity';
 
 @Entity()
 @Unique(['email'])
