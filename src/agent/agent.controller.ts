@@ -54,7 +54,7 @@ export class AgentController {
     @GetUser() user: User,
     @Body() createAgentDto: CreateAgentDto,
     @UploadedFile() profilePic,
-  ) {
+  ): Promise<AgentEntity> {
     createAgentDto.profilePic = profilePic;
     return await this.agentService.createAgent(createAgentDto, user);
   }
