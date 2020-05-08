@@ -7,7 +7,8 @@ import { User } from './auth/user.entity';
 import { UserModule } from './user/user.module';
 import { ProjectModule } from './project/project.module';
 import { ProjectEntity } from './project/project.entity';
-import { CompanyEntity } from './user/company.entity';
+import { AgentModule } from './agent/agent.module';
+import { AgentEntity } from './agent/agent.entity';
 
 @Module({
   imports: [
@@ -18,10 +19,11 @@ import { CompanyEntity } from './user/company.entity';
         'mongodb+srv://x1k:hero@cluster0-gznkd.gcp.mongodb.net/test?retryWrites=true&w=majority',
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      entities: [User, ProjectEntity],
+      entities: [User, ProjectEntity, AgentEntity],
     }),
     UserModule,
     ProjectModule,
+    AgentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

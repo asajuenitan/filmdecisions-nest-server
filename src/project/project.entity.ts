@@ -13,7 +13,7 @@ import { User } from '../auth/user.entity';
 import { IFile } from './file.interface';
 
 @Entity()
-@Unique(['filmTitle'])
+@Unique('filmTitle', ['filmTitle'])
 export class ProjectEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   @ObjectIdColumn()

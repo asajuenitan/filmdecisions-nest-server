@@ -94,6 +94,7 @@ export class UserRepository extends Repository<User> {
       companyEmailAddress,
       registeredOfficeAddress,
       taxIdentificationNumber,
+      profilePic,
     } = companyDetails;
     const userExists = await this.findOne(user._id);
     if (userExists) {
@@ -106,6 +107,7 @@ export class UserRepository extends Repository<User> {
       userExists.taxIdentificationNumber = taxIdentificationNumber;
       userExists.telephoneNumber = telephoneNumber;
       userExists.companyEmailAddress = companyEmailAddress;
+      userExists.profilePic = profilePic;
     }
     try {
       // this.update(userExists, companyDetails);
@@ -145,6 +147,17 @@ export class UserRepository extends Repository<User> {
     try {
       const user = await this.findOneOrFail(id);
       return user;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
+
+  async deleteUser(id: string): Promise<void> {
+    try {
+      const user = await this.findOneOrFail(id);
+      if (user) {
+        this.delete(user);
+      }
     } catch (err) {
       throw new NotFoundException();
     }

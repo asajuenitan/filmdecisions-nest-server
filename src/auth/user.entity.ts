@@ -10,6 +10,8 @@ import {
   OneToOne,
 } from 'typeorm';
 import { ProjectEntity } from '../project/project.entity';
+import { IFile } from 'src/project/file.interface';
+import { AgentEntity } from 'src/agent/agent.entity';
 
 @Entity()
 @Unique(['email'])
@@ -40,7 +42,7 @@ export class User extends BaseEntity {
   jobTitle: string;
 
   @Column()
-  profilePicPath?: string;
+  profilePicPath?: IFile;
 
   @Column()
   companyName: string;
@@ -75,10 +77,20 @@ export class User extends BaseEntity {
   @Column()
   roles: string;
 
+  @Column()
+  profilePic: IFile;
+
   @OneToMany(
     type => ProjectEntity,
     project => project.user,
     { eager: true },
   )
   projects: ProjectEntity[];
+
+  @OneToMany(
+    type => AgentEntity,
+    agent => agent.user,
+    { eager: true },
+  )
+  agents: AgentEntity[];
 }

@@ -5,7 +5,7 @@ import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProjectRepository } from './project.repository';
 import { MulterModule } from '@nestjs/platform-express';
-import { fileFilter } from './file-upload.filter';
+import { fileFilter, editFileName } from './file-upload.filter';
 
 @Module({
   providers: [ProjectService],
@@ -14,7 +14,6 @@ import { fileFilter } from './file-upload.filter';
     TypeOrmModule.forFeature([ProjectRepository]),
     MulterModule.register({
       dest: 'uploads/projects',
-      fileFilter: fileFilter,
     }),
   ],
 })
