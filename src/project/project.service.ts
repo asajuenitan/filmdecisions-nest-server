@@ -46,25 +46,25 @@ export class ProjectService {
     return await this.projectRepo.uploadProjectFiles(projectId, user, files);
   }
 
-  // async uploadCast(id: string, user: User, files: IFile) {
-  //   return this.projectRepo.uploadCast(id, files, user);
-  // }
+  async uploadCast(id: string, user: User, files: IFile) {
+    return this.projectRepo.uploadCast(id, files, user);
+  }
 
-  // async uploadFilmStructure(id: string, files: IFile, user: User) {
-  //   return this.projectRepo.uploadFilmStructure(id, files, user);
-  // }
+  async uploadFilmStructure(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadFilmStructure(id, files, user);
+  }
 
-  // async uploadTargetAudience(id: string, files: IFile, user: User) {
-  //   return this.projectRepo.uploadTargetAudience(id, files, user);
-  // }
+  async uploadTargetAudience(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadTargetAudience(id, files, user);
+  }
 
-  // async uploadTreatment(id: string, files: IFile, user: User) {
-  //   return this.projectRepo.uploadTreatment(id, files, user);
-  // }
+  async uploadTreatment(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadTreatment(id, files, user);
+  }
 
-  // async uploadFilmSynopsis(id: string, files: IFile, user: User) {
-  //   return this.projectRepo.uploadFilmSynopsis(id, files, user);
-  // }
+  async uploadFilmSynopsis(id: string, files: IFile, user: User) {
+    return this.projectRepo.uploadFilmSynopsis(id, files, user);
+  }
 
   async updateProjectStatus(id: string, user: User, updateData) {
     return await this.projectRepo.updateProjectStatus(id, user, updateData);

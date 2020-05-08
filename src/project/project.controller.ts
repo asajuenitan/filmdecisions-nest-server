@@ -76,60 +76,60 @@ export class ProjectController {
     return await this.projectService.uploadProjectFiles(user, id, files);
   }
 
-  // @Put('project/:id/upload-cast')
-  // @UseInterceptors(
-  //   FileInterceptor('cast', {
-  //     dest: 'uploads/projects',
-  //   }),
-  // )
-  // async UploadCast(
-  //   @Param('id') id: string,
-  //   @GetUser() user: User,
-  //   @UploadedFile() file,
-  // ) {
-  //   console.log(file);
-  //   return this.projectService.uploadCast(id, user, file);
-  // }
+  @Put('project/:id/upload-cast')
+  @UseInterceptors(
+    FileInterceptor('cast', {
+      dest: 'uploads/projects',
+    }),
+  )
+  async UploadCast(
+    @Param('id') id: string,
+    @GetUser() user: User,
+    @UploadedFile() file,
+  ) {
+    console.log(file);
+    return this.projectService.uploadCast(id, user, file);
+  }
 
-  // @Put('project/:id/upload-film-structure')
-  // @UseInterceptors(AnyFilesInterceptor())
-  // async uploadFilmStructure(
-  //   @Param('id') id: string,
-  //   @GetUser() user: User,
-  //   @UploadedFile() file,
-  // ) {
-  //   return this.projectService.uploadFilmStructure(id, file, user);
-  // }
+  @Put('project/:id/upload-film-structure')
+  @UseInterceptors(AnyFilesInterceptor())
+  async uploadFilmStructure(
+    @Param('id') id: string,
+    @GetUser() user: User,
+    @UploadedFile() file,
+  ) {
+    return this.projectService.uploadFilmStructure(id, file, user);
+  }
 
-  // @Put('project/:id/upload-target-audience')
-  // @UseInterceptors(AnyFilesInterceptor())
-  // async uploadTargetAudience(
-  //   @Param('id') id: string,
-  //   @GetUser() user: User,
-  //   @UploadedFile() file,
-  // ) {
-  //   return this.projectService.uploadTargetAudience(id, file, user);
-  // }
+  @Put('project/:id/upload-target-audience')
+  @UseInterceptors(AnyFilesInterceptor())
+  async uploadTargetAudience(
+    @Param('id') id: string,
+    @GetUser() user: User,
+    @UploadedFile() file,
+  ) {
+    return this.projectService.uploadTargetAudience(id, file, user);
+  }
 
-  // @Put('project/:id/upload-treatment')
-  // @UseInterceptors(AnyFilesInterceptor())
-  // async uploadTreatment(
-  //   @Param('id') id: string,
-  //   @GetUser() user: User,
-  //   @UploadedFile() file,
-  // ) {
-  //   return this.projectService.uploadTreatment(id, file, user);
-  // }
+  @Put('project/:id/upload-treatment')
+  @UseInterceptors(AnyFilesInterceptor())
+  async uploadTreatment(
+    @Param('id') id: string,
+    @GetUser() user: User,
+    @UploadedFile() file,
+  ) {
+    return this.projectService.uploadTreatment(id, file, user);
+  }
 
-  // @Put('project/:id/upload-film-synopsis')
-  // @UseInterceptors(AnyFilesInterceptor())
-  // async uploadFilmSynopsis(
-  //   @Param('id') id: string,
-  //   @GetUser() user: User,
-  //   @UploadedFile() file,
-  // ) {
-  //   return this.projectService.uploadFilmSynopsis(id, file, user);
-  // }
+  @Put('project/:id/upload-film-synopsis')
+  @UseInterceptors(AnyFilesInterceptor())
+  async uploadFilmSynopsis(
+    @Param('id') id: string,
+    @GetUser() user: User,
+    @UploadedFile() file,
+  ) {
+    return this.projectService.uploadFilmSynopsis(id, file, user);
+  }
 
   @Delete('/project/:id')
   @Roles('admin')

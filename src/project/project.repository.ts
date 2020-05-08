@@ -143,76 +143,76 @@ export class ProjectRepository extends Repository<ProjectEntity> {
     }
   }
 
-  // async uploadCast(id: string, files: any, user: User): Promise<ProjectEntity> {
-  //   const project = await this.findOne(id, { where: `userId = ${user._id}` });
-  //   project.cast = files;
-  //   // const element = files[i];
-  //   // console.log(project);
-  //   try {
-  //     project.save();
-  //     return project;
-  //   } catch (err) {
-  //     throw new NotFoundException();
-  //   }
-  // }
+  async uploadCast(id: string, files: any, user: User): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    project.cast = files;
+    // const element = files[i];
+    // console.log(project);
+    try {
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
 
-  // async uploadFilmStructure(
-  //   id: string,
-  //   files: any,
-  //   user: User,
-  // ): Promise<ProjectEntity> {
-  //   const project = await this.findOne(id, { where: `userId = ${user._id}` });
-  //   try {
-  //     project.filmStructure = files;
-  //     project.save();
-  //     return project;
-  //   } catch (err) {
-  //     throw new NotFoundException();
-  //   }
-  // }
+  async uploadFilmStructure(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.filmStructure = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
 
-  // async uploadTargetAudience(
-  //   id: string,
-  //   files: any,
-  //   user: User,
-  // ): Promise<ProjectEntity> {
-  //   const project = await this.findOne(id, { where: `userId = ${user._id}` });
-  //   try {
-  //     project.targetAudience = files;
-  //     project.save();
-  //     return project;
-  //   } catch (err) {
-  //     throw new NotFoundException();
-  //   }
-  // }
+  async uploadTargetAudience(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.targetAudience = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
 
-  // async uploadTreatment(
-  //   id: string,
-  //   files: any,
-  //   user: User,
-  // ): Promise<ProjectEntity> {
-  //   const project = await this.findOne(id, { where: `userId = ${user._id}` });
-  //   try {
-  //     project.treatment = files;
-  //     project.save();
-  //     return project;
-  //   } catch (err) {
-  //     throw new NotFoundException();
-  //   }
-  // }
+  async uploadTreatment(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.treatment = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
 
-  // async uploadFilmSynopsis(
-  //   id: string,
-  //   files: any,
-  //   user: User,
-  // ): Promise<ProjectEntity> {
-  //   const project = await this.findOne(id, { where: `userId = ${user._id}` });
-  //   try {
-  //     project.filmSynopsis = files;
-  //     project.save();
-  //     return project;
-  //   } catch (err) {
-  //     throw new NotFoundException();
-  //   }
-  // }
+  async uploadFilmSynopsis(
+    id: string,
+    files: any,
+    user: User,
+  ): Promise<ProjectEntity> {
+    const project = await this.findOne(id, { where: `userId = ${user._id}` });
+    try {
+      project.filmSynopsis = files;
+      project.save();
+      return project;
+    } catch (err) {
+      throw new NotFoundException();
+    }
+  }
 }

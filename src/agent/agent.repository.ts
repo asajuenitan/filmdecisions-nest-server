@@ -5,7 +5,7 @@ import {
   NotFoundException,
   ConflictException,
 } from '@nestjs/common';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 import { CreateAgentDto } from './dto/create-agent.dto';
 
 @EntityRepository(AgentEntity)
