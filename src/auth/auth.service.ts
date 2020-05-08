@@ -67,7 +67,7 @@ export class AuthService {
     });
 
     const mailToSend = {
-      from: '"Company" <info@filmdecisions.com>',
+      from: '"NLLT Film Decisions" <info@filmdecisions.com>',
       to: email,
       subject: 'Successful Registration',
       text: 'Successful Registration',
