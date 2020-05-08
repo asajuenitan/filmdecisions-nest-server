@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsString, IsEmail } from 'class-validator';
-import { IFile } from 'src/project/file.interface';
+import { IFile } from '../../project/file.interface';
 
 export class CreateAgentDto {
   @IsNotEmpty()

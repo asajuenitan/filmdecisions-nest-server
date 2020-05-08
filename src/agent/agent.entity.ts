@@ -8,8 +8,8 @@ import {
   Column,
   ManyToOne,
 } from 'typeorm';
-import { IFile } from 'src/project/file.interface';
-import { User } from 'src/auth/user.entity';
+import { IFile } from '../project/file.interface';
+import { User } from '../auth/user.entity';
 
 @Entity()
 @Unique(['email'])

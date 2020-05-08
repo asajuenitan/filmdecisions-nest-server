@@ -8,7 +8,7 @@ import {
   MaxLength,
   IsOptional,
 } from 'class-validator';
-import { IFile } from 'src/project/file.interface';
+import { IFile } from '../../project/file.interface';
 
 export class AuthCredentialDto {
   @IsEmail()

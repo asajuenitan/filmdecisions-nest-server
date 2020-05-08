@@ -12,11 +12,11 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { AgentService } from './agent.service';
 import { AgentEntity } from './agent.entity';
-import { GetUser } from 'src/auth/get-user.decorator';
-import { User } from 'src/auth/user.entity';
+import { GetUser } from '../auth/get-user.decorator';
+import { User } from '../auth/user.entity';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateAgentDto } from './dto/create-agent.dto';
-import { Roles } from 'src/auth/roles.decorator';
+import { Roles } from '../auth/roles.decorator';
 
 @Controller('agents')
 @UseGuards(AuthGuard('jwt'))
